@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>E-Commerce Business Registration</title>
+    <!-- Basic styling for clean layout -->
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f6f8;
         }
         .container {
-            width: 400px;
+            width: 420px;
             margin: 40px auto;
             background: #ffffff;
             padding: 20px;
@@ -21,12 +22,15 @@
         }
         label {
             display: block;
-            margin-top: 10px;
+            margin-top: 12px;
         }
         input, select {
             width: 100%;
             padding: 8px;
             margin-top: 5px;
+        }
+        .terms {
+            margin-top: 12px;
         }
         button {
             margin-top: 15px;
@@ -47,7 +51,9 @@
 
 <div class="container">
     <h2>E-Commerce Registration</h2>
-    <form>
+    <!-- E-Commerce Business Registration Form -->
+    <form onsubmit="return confirmSubmission();">
+
         <label>Full Name</label>
         <input type="text" required>
 
@@ -55,11 +61,12 @@
         <input type="email" required>
 
         <label>Password</label>
-        <input type="password" required>
+        <!-- Password validation -->
+        <input type="password" minlength="6" required>
 
         <label>Business Name</label>
         <input type="text" required>
-
+        <!-- Country of origin selection -->
         <label>Country of Origin</label>
         <select required>
             <option value="">-- Select Country --</option>
@@ -67,17 +74,31 @@
             <option>Uganda</option>
             <option>Tanzania</option>
             <option>Rwanda</option>
+            <option>Ethiopia</option>
             <option>Nigeria</option>
             <option>South Africa</option>
             <option>Other</option>
         </select>
-
         <label>Phone Number</label>
-        <input type="tel" required>
-
+        <!-- Accepts numbers only -->
+        <input type="tel" pattern="[0-9]{9,13}" placeholder="e.g. 0712345678" required>
+        <!-- Terms and conditions -->
+        <div class="terms">
+            <input type="checkbox" required>
+            I agree to the Terms and Conditions
+        </div>
+        
         <button type="submit">Register</button>
     </form>
 </div>
-
+<!-- Submission confirmation -->
+<script>
+    function confirmSubmission() {
+        alert("Registration successful. Thank you for joining our e-commerce platform.");
+        return true;
+    }
+</script>
 </body>
 </html>
+
+
